@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+     <!-- <link href="" rel="stylesheet">
+     <link href="" rel="stylesheet">-->
+    <title>NumericAg - Results,DSS for Precision Agriculture</title>
+    <!-- Bootstrap core CSS -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
+
+    <!-- Custom styles for this template -->
+    <!--<link href="offcanvas.css" rel="stylesheet">-->
+
+    <!--Just for debugging purposes. Don't actually copy these 2 lines! -->
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <![endif]-->
+ <style>
+table {
+    width:100%;
+}
+table, th, td {
+    border: 1px solid;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: center;
+}
+
+table th {
+    background-color:	#808080;
+    color: white;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="alert alert-success" role="alert">
+
+    <strong>{{ user.first_name}}: </strong> <br/>
+    <p>Based on the information provided, please find our best estimate of the probable effect of <strong>Nitrogen</strong> fertilization on the expected Net Return over Cost of Fertilization (NRCF) for the conditions specified .
+        Maximum expected NRCF is achieved with  <strong>{{ optNrate }} kg/ha.</strong> rate of fertilization. However, please apply your risk preference when selecting the right application rate and accept our best wishes for your farming operation.
+    </p>
+
+</div>
+
+<div>
+    <h3> Your input parameters:</h3>
+    <table>
+        <tr>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Current crop</th>
+            <th>Climate (AWDR)</th>
+            <th>Previous crop</th>
+            <th>Season</th>
+            <th>Soil type</th>
+            <th>Tillage</th>
+        </tr>
+        <tr>
+            <td>{{ siteInfo.latitude }}</td>
+            <td>{{ siteInfo.longitude }}</td>
+            <td>{{ siteInfo.current_crop }}</td>
+            <td>{{ siteInfo.climate }}</td>
+            <td>{{ siteInfo.prev_crop }}</td>
+            <td>{{ siteInfo.season }}</td>
+            <td>{{ siteInfo.soiltype }}</td>
+            <td>{{ siteInfo.tilltype }}</td>
+        </tr>
+    </table>
+</div>
+
+<br>
+ <h3> Tabulated results with probabilities and expected profits at each N application rate: </h3>
+            <table >
+
+                <tr>
+                    <td>
+                         <div>{{dfresult | safe}}</div>
+                    </td>
+                </tr>
+
+            </table>
+
+         <br>
+</div>
+  <span class="label label-info">
+      <p> <strong>NRCNF</strong> - Net return over cost of fertilization </p>
+
+    <p> <strong>EFB</strong> - Expected fertilization benefits</p>
+  </span>
+
+
+<span><br/>
+    <strong>
+   Sincerely yours,<br>
+   NumericAg
+
+    </strong>
+</span>
+
+</body>
+</html>
